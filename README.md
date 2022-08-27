@@ -1,0 +1,2 @@
+# CUMCM_GuangDong_LaTeX_Template
+满足广东省要求的数学建模国赛LaTeX模板，适配到2022年
