@@ -2,6 +2,10 @@
 
 满足广东省要求的数学建模国赛 $\LaTeX$ 模板，适配到2022年。
 
+## 致谢
+
+本模板在仓库 [CUMCMThesis](https://github.com/latexstudio/CUMCMThesis) 和 [CUMCM_LaTeX_Template](https://github.com/personqianduixue/CUMCM_LaTeX_Template) 的基础上综合进行了修改，感谢原作者的贡献。
+
 ## 编译环境
 
 使用本地 $\TeX$ Live 2022 亲测在 Windows 和 Linux（WSL2）下均可以顺利编译，编译顺序为
