@@ -1,6 +1,6 @@
 # CUMCM_GuangDong_LaTeX_Template
 
-满足广东省要求的数学建模国赛$\LaTeX$模板，适配到2022年。
+满足广东省要求的数学建模国赛 $\LaTeX$ 模板，适配到2022年。
 
 ## 编译环境
 
