@@ -1,3 +1,16 @@
+% author:yangyf83
+% date:2022-08-15
+% version:1.0
+% a part of the repo CUMCM_GuangDong_LaTeX_Template
+% https://github.com/NorthSecond/CUMCM_GuangDong_LaTeX_Template
+% copyright with MIT Lisence.
+
+% 全国大学生数学建模竞赛广东省论文LaTeX模板
+% 目前适配到2022年国赛和广东省的论文格式要求
+% 本模板在 https://github.com/latexstudio/CUMCMThesis 
+% 和 https://github.com/personqianduixue/CUMCM_LaTeX_Template 
+% 的基础上进行了修改，感谢原作者的贡献。
+
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{cumcmthesis}
               [2022/08/15 v1.0 Standard LaTeX Template for CUMCM GuangDong]
@@ -11,12 +24,14 @@
 \ExecuteOptions{colorprint}
 \ProcessOptions\relax
 %% Loading Class
+
 % 正文使用小四字号
 \LoadClass[a4paper,12pt]{article}
 %% Loading Package
 \RequirePackage{ifxetex}
 \RequireXeTeX
 
+% 编译工具检查
 \ifxetex\else
 \ClassError{mcmthesis}{You must use the `xelatex' driver\MessageBreak Please choose `xelatex'}{%
 Just choose `xelatex', no `pdflatex' or `latex' and so on.}
@@ -32,7 +47,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \RequirePackage{amssymb}
 \RequirePackage{bm}
 %\RequirePackage{titletoc}
-% 设置颜色
+% 关于颜色的 xcolor 宏包
 \RequirePackage{xcolor}
 % 插入图片
 \RequirePackage{graphicx}
@@ -93,36 +108,13 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 
 % 不使用目录，因此删去所有目录相关的内容
 
-% 代码环境
-%\definecolor{dkgreen}{rgb}{0,0.6,0}
-%\definecolor{gray}{rgb}{0.5,0.5,0.5}
-%\definecolor{mauve}{rgb}{0.58,0,0.82}
-%
-%\lstset{
-%  frame=tb,
-%  aboveskip=3mm,
-%  belowskip=3mm,
-%  showstringspaces=false,
-%  columns=flexible,
-%  framerule=1pt,
-%  rulecolor=\color{gray!35},
-%  backgroundcolor=\color{gray!5},
-%  basicstyle={\small\ttfamily},
-%  numbers=none,
-%  numberstyle=\tiny\color{gray},
-%  keywordstyle=\color{blue},
-%  commentstyle=\color{dkgreen},
-%  stringstyle=\color{mauve},
-%  breaklines=true,
-%  breakatwhitespace=true,
-%  tabsize=3,
-%}
-
+% 关于代码环境的有关颜色的设置
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.95}
 
+% 代码 Hightlight 环境的设置
 \lstset{
 	basicstyle=\small\tt,
 	backgroundcolor=\color{backcolour},   
@@ -142,6 +134,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 	%escapebegin=\begin{CJK*}{GBK}{hei},escapeend=\end{CJK*},
 	tabsize=4
 }
+
 % 首行缩进
 \RequirePackage{indentfirst}
 % 设置浮动体的标题
@@ -155,8 +148,6 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 
 \RequirePackage[titletoc,title]{appendix}
 
-%\RequirePackage[title,toc,titletoc]{appendix}
-
 \RequirePackage{etoolbox}
 \AtBeginEnvironment{thebibliography}{%
     \phantomsection
@@ -169,8 +160,11 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \RequirePackage{cleveref}
 
 % 页面布局
-% 页边距：25mm页边距：
+% 页边距：四侧均为25mm页边距：
+% 本来想设置成国标的，但是发现国标好像不满足广东省论文边距的要求
+% 那就卡下限四面一样宽吧
 \geometry{top=25mm,bottom=25mm,left=25mm,right=25mm}
+
 % 行距：1.25倍行距
 \renewcommand*{\baselinestretch}{1.25}
 
@@ -189,17 +183,17 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % 设置字体
 % 可使用 fc-list :lang=zh-cn 命令来获得自己电脑上的中文字体对应的简写
 % 参考https://zhuanlan.zhihu.com/p/260989874
+% 这里使用 Windows 内部自带的一些字体，
+% 在字体相对完整的 Windows 下应该可以不考虑字体自动运行
 \setmainfont{Times New Roman}
 \setsansfont{Arial}
-% \setCJKmainfont{SimSun}
+
 % 设置等宽字体
 \setmonofont{Consolas}
-\setCJKfamilyfont{kai}[AutoFakeBold]{simkai.ttf}
-\newcommand*{\kai}{\CJKfamily{kai}}
+
+% 中文字体：宋体天下第一[doge]
 \setCJKfamilyfont{song}[AutoFakeBold]{SimSun}
 \newcommand*{\song}{\CJKfamily{song}}
-% \setCJKfamilyfont{heiti}[AutoFakeBold]{SimHei}
-% \newcommand*{\heiti}{\CJKfamily{heiti}}
 
 \renewcommand\normalsize{%
 	\@setfontsize\normalsize{12.05}{14.45}
@@ -234,6 +228,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
  \renewcommand*{\floatpagefraction}{0.85}
 % 关于图片 graphicx
 % 如果图片没有指定后缀, 依次按下列顺序搜索
+% 冷知识：pdf是在latex中插入矢量图亲测支持最好的格式
 \DeclareGraphicsExtensions{.pdf,.eps,.jpg,.png}
 % 设置图表搜索路径, 可以给图表文件夹取如下名字
 \graphicspath{{figures/}{figure/}{pictures/}%
@@ -248,6 +243,8 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 	font={song,minusfour}, % 图的字体, 宋体小四
 	position=bottom % position=bottom, 不代表标题放在下面, 标题仍放在你放\caption的位置.
 }
+
+% 表格标题
 \captionsetup[table]{%
 	format=hang,   % 标题从第二行开始都有缩进, 应该和 justification=raggedright 的效果一样.
 	labelsep=quad, % 分隔符是一个空格
@@ -371,7 +368,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Document Markup
-% 生成封面
+% 生成标题
 \renewcommand{\maketitle}{\par
 \begingroup
 	\newpage
@@ -390,9 +387,13 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \global\let\date\relax
 \global\let\and\relax
 }
+
+% override the default title page
 \def\@maketitle{
   \null
+% 设置页码
 \setcounter{page}{1}
+% 显示标题
 {\centering \zihao{-2} \bfseries \@title \par}
 \vskip1ex
 }
@@ -441,6 +442,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 %% Define new environment and command
 %% 摘要两个字设置为 4 号.
 %% 定义摘要环境
+%% 摘要和关键字单独一页。
 \renewenvironment{abstract}{%
 \if@twocolumn
 		\section*{\abstractname}%

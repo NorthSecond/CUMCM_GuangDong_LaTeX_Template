@@ -1,36 +1,50 @@
 %! Mode:: "TeX:UTF-8"
 
+% 编译方式 XeLatex -> bibtex -> xelatex x 2
+% 这里不需要通过[]进行电子版和纸质版的区分了。
+% 因为广东省确实只需要电子版，不需要前两页和目录。
 \documentclass{cumcmthesis}
 
 \usepackage[numbers,sort&compress]{natbib}
 
-
+% 标题设置 这里去除了关于承诺书的等内容
 \title{这里是标题}
 
 \begin{document}
 \maketitle
+% 摘要环境，自动和正文有一页间隔。
 \begin{abstract}
     摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容。
     \par 摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容。
     \par 在摘要里面插入数学 $\Delta = b^2 - 4ac$。
+
+    % 关键字，自带加粗等等
     \keywords{\TeX{}\quad  图片\quad   表格\quad  公式}
 \end{abstract}
+
+% FIXME: 关于标题出现 Warning 的情况目前没有找到一个好的解决方案
+% 但是目前看起来并不影响使用。
+% 欢迎pr修复这个问题
 \section{问题重述}
 \subsection{问题背景}
 这里是一行正文。
 \subsection{问题要求}
+% 引用环境 \upcite 和 \cite 测试都是可以的。按照国标用 \upcite 稍微多一点
 这里是一行引用的正文\upcite{martin2022medusa}。
 \section{问题分析}
 \subsection{问题一分析}
 详见图1.
 \begin{figure}[htbp]
     \centering
+    % 在默认模板里面这个图就自成一页了
+    % 但是这里没有
     \includegraphics[width = \textwidth]{pro2}
     \caption{一个炒鸡大的插图示例}
 \end{figure}
 \subsection{问题二分析}
 参见表1.
 \begin{table}[htbp]
+    % 这里默认是三线表，其他表格亲测也是可以的
     \centering
     \begin{tabular}{cccc}
         \toprule
@@ -110,7 +124,7 @@ equation 等式环境测试
 \subsubsection{模型稳定性分析}
 \begin{figure}[!htbp]
     \centering
-    \includegraphics[width = \textwidth]{powerChange}
+    \includegraphics[width = \textwidth]{pro2}
     \caption[]{一般插图}
 \end{figure}
 \subsubsection{模型的优点}
@@ -140,13 +154,14 @@ equation 等式环境测试
         \centering
         \begin{tabular}{cc}
             \toprule[1.5pt]
-            文件名 & 功能描述 \\
+            文件名   & 功能描述 \\
             \midrule
-            Data.mat                & 附件数据                         \\
+            Data.mat & 附件数据 \\
             \bottomrule
         \end{tabular}
     \end{table}
-    
+
+    % 附件：在论文附录部分插入所用到的所有代码和命令交互序列
     \section{代码}
     problem1.py 用来处理$\cdots$逻辑。
     \par \lstinputlisting[language=python]{code/problem1.py}
